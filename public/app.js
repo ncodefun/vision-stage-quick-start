@@ -36,6 +36,8 @@ class App extends VisionStage {
 	`
 }
 
+
+
 App.config = {
 	font_size_decimals: 1,
 	paths: {
