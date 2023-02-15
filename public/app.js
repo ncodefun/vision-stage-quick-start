@@ -36,12 +36,28 @@ class App extends VisionStage {
 	`
 }
 
-App.config = {
-	font_size_decimals: 1,
-	paths: {
-		// icons: 'https://visionstage.dev/_assets/images/icons.svg'
-		//! can't use <use> across domains…
-		components: 'https://visionstage.dev/_components/'
+App.languages = 	['en', 'fr']
+
+App.pages = {
+	'': 				["Home", "Accueil"],
+	'about': 		['About', 'À propos'],
+	'https://visionstage.dev/': ['Vision Stage'],
+}
+
+App.strings = {
+	title: 			["Quick Start", "Démarrage rapide"],
+	count:			['Count', 'Compte'],
+}
+
+App.properties = {
+	count: {
+		value: 0,
+		storable: true,
+		sync_to_url_param: true,
+		force_url_param: true,
+		watcher(value){
+			console.log('new count value:', value)
+		}
 	}
 }
 
@@ -55,28 +71,11 @@ App.aspects = {
 	cross_margin: '1.23%', 	// Margins opposite to "black bars" to detach the stage visually
 }
 
-App.languages = 	['en', 'fr']
-
-App.strings = {
-	title: 			["Quick Start", "Démarrage rapide"],
-	count:			['Count', 'Compte'],
-}
-
-App.pages = {
-	'': 				["Home", "Accueil"],
-	'about': 		['About', 'À propos'],
-	'https://visionstage.dev/': ['Vision Stage'],
-}
-
-App.properties = {
-	count: {
-		value: 0,
-		storable: true,
-		sync_to_url_param: true,
-		force_url_param: true,
-		watcher(value){
-			console.log('new count value:', value)
-		}
+App.config = {
+	font_size_decimals: 1,
+	paths: {
+		components: 'https://visionstage.dev/_components/',
+		icons: '/icons.svg'
 	}
 }
 
