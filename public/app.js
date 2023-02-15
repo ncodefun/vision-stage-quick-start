@@ -1,11 +1,7 @@
 import { VisionStage, html, define, log, icon }
 	from 'https://visionstage.dev/vision-stage/vision-stage.min.js'
-
-// import { sleep, strIf }
-// 	from 'https://visionstage.dev/vision-stage/utils.js'
-
-import { appHeader, appContent, appFooter } 	from 'https://visionstage.dev/vision-stage/templates.js'
-
+import { appHeader, appContent, appFooter }
+	from 'https://visionstage.dev/vision-stage/templates.js'
 
 class App extends VisionStage {
 
@@ -20,12 +16,11 @@ class App extends VisionStage {
 	home = () => html`
 		<main id='home' flow='col top grow'>
 			<h1>Vision Stage</h1>
-			<h2>${ this.$title }</h2>
+			<h2>${this.$title}</h2>
 			<p>
-				<button @click=${ () => ++this.count }>Count: ${ this.count }</button>
-			</p>
-			<p>
-				<a href='#/count=0/night_mode=1'>#/count=0/night_mode=1</a>
+				<button @click=${ () => ++this.count }>
+					${ this.$count }: ${ this.count }
+				</button>
 			</p>
 		</main>
 	`
@@ -37,10 +32,6 @@ class App extends VisionStage {
 			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, earum commodi omnis, laudantium cumque ratione blanditiis, eveniet quae repellat rerum nostrum possimus sunt praesentium aliquid. Incidunt, pariatur! Labore, quas consectetur?</p>
 			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, earum commodi omnis, laudantium cumque ratione blanditiis, eveniet quae repellat rerum nostrum possimus sunt praesentium aliquid. Incidunt, pariatur! Labore, quas consectetur?</p>
 			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, earum commodi omnis, laudantium cumque ratione blanditiis, eveniet quae repellat rerum nostrum possimus sunt praesentium aliquid. Incidunt, pariatur! Labore, quas consectetur?</p>
-
-
-
-
 		</main>
 	`
 }
@@ -55,12 +46,12 @@ App.config = {
 }
 
 App.aspects = {
-	// portrait_alt: 	.5,		// Alt min horizontal space in portrait for .alt-scaling elements
+	portrait_alt: 	.5,		// Alt min horizontal space in portrait for .alt-scaling elements
 	portrait: 		.6,		// Min horizontal space in portrait
 	portrait_max: 	.6,		// Max horizontal space in portrait
-	landscape: 		.9,		// Min horizontal space in landscape
+	landscape: 		4/3,		// Min horizontal space in landscape
 	landscape_max: 1.85,		// Max horizontal space in landscape
-	threshold: 		.9,		// Ratio at which to switch b/w landscape & portrait
+	threshold: 		1.2,		// Ratio at which to switch b/w landscape & portrait
 	cross_margin: '1.23%', 	// Margins opposite to "black bars" to detach the stage visually
 }
 
@@ -71,9 +62,9 @@ App.strings = {
 	count:			['Count', 'Compte'],
 }
 
-App.pages = {		// Localized nav menu links, getPageLink(page_name);
+App.pages = {
 	'': 				["Home", "Accueil"],
-	about: 			['About', 'À propos'], // bare = Virtual page (#), use / or ./ for links to real pages.
+	'about': 		['About', 'À propos'],
 	'https://visionstage.dev/': ['Vision Stage'],
 }
 
